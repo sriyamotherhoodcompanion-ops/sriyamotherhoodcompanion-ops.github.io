@@ -52,6 +52,7 @@
     padding: 28px 24px;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
   .plan-card.free {
     background: var(--free-bg);
@@ -65,6 +66,19 @@
   .plan-card.premium {
     background: var(--premium-bg);
     color: #fff;
+  }
+  .coming-soon-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #F0C020;
+    color: #2D1B4E;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   }
   .plan-card h2 {
     margin: 0 0 4px;
@@ -119,6 +133,11 @@
     color: #fff;
   }
   .buy-btn:hover { opacity: 0.85; }
+  .buy-btn.disabled {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+  }
 
   .how-it-works {
     margin-top: 56px;
@@ -216,6 +235,7 @@
     </div>
 
     <div class="plan-card premium">
+      <span class="coming-soon-badge">Coming Soon</span>
       <h2>SRIYA Premium Plan</h2>
       <div class="tagline">Ultimate features for your journey</div>
       <div class="price">$4.99 <span>one-time</span></div>
@@ -228,7 +248,7 @@
         <li>Upload Your Own Background Music</li>
         <li>Export Medical Reports as PDF</li>
       </ul>
-      <a class="buy-btn" href="https://sriyaapp.gumroad.com" target="_blank" rel="noopener">Buy Now — $4.99</a>
+      <span class="buy-btn disabled">Coming Soon</span>
     </div>
 
   </div>
