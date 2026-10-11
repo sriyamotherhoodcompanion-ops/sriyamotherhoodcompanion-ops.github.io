@@ -3,232 +3,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SRIYA Motherhood Companion — Upgrade Your Plan</title>
+<title>SRIYA Motherhood Companion</title>
+<meta name="description" content="SRIYA is a gentle pregnancy companion app: track your pregnancy week by week, your health and your baby's movements, and connect with other mothers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* SRIYA app colours */
   :root {
-    --free-bg: #F3E4F5;
-    --free-accent: #A7ABDE;
-    --free-text: #4A3560;
-    --paid-accent: #6B4E8D;
-    --premium-bg: #2D1B4E;
-    --page-bg: #ffffff;
-    --muted: #6b6b6b;
+    --navy: #173753;     /* page background */
+    --steel: #8DA9C4;    /* card shade, buttons */
+    --white: #FFFFFF;    /* cards */
+    --black: #111111;    /* text on cards */
+    --red: #E60000;      /* icons and small highlights */
+    --pink: #E91E63;     /* heart */
   }
   * { box-sizing: border-box; }
+  html { background: var(--navy); }
   body {
     margin: 0;
-    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    background: var(--page-bg);
-    color: var(--free-text);
+    font-family: 'Poppins', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: var(--navy);
+    color: var(--white);
     line-height: 1.6;
   }
   header {
     text-align: center;
-    padding: 48px 20px 24px;
+    padding: 56px 20px 16px;
   }
-  header h1 {
-    margin: 0 0 8px;
-    font-size: 2rem;
-    color: var(--free-text);
-  }
-  header p {
+  .wordmark {
     margin: 0;
-    color: var(--muted);
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .wordmark .heart { color: var(--pink); }
+  header .sub {
+    margin: 4px 0 0;
     font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--steel);
+  }
+  header .intro {
+    max-width: 620px;
+    margin: 20px auto 0;
+    font-size: 1rem;
   }
   main {
-    max-width: 960px;
+    max-width: 980px;
     margin: 0 auto;
-    padding: 24px 20px 64px;
+    padding: 24px 20px 48px;
+  }
+  h2.section {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 40px 0 8px;
+  }
+  /* White card with the steel-blue shade block, like the app */
+  .card {
+    background: var(--white);
+    color: var(--black);
+    border-radius: 20px;
+    box-shadow: -8px -8px 0 var(--steel);
+    margin: 8px 0 0 8px;
+    padding: 26px 22px;
   }
   .plans {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-    margin-top: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 28px;
+    margin-top: 16px;
   }
-  .plan-card {
-    border-radius: 20px;
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  .plan { display: flex; flex-direction: column; }
+  .plan h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--navy);
   }
-  .plan-card.free {
-    background: var(--free-bg);
-    color: var(--free-text);
-    border: 2px solid var(--free-accent);
+  .plan .tagline {
+    font-size: 0.88rem;
+    color: var(--navy);
+    opacity: 0.8;
+    margin-bottom: 12px;
   }
-  .plan-card.paid {
-    background: var(--paid-accent);
-    color: #fff;
-  }
-  .plan-card.premium {
-    background: var(--premium-bg);
-    color: #fff;
-  }
-  .coming-soon-badge {
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    background: #F0C020;
-    color: #2D1B4E;
-    font-size: 0.75rem;
+  .plan .price {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--steel);
+    color: var(--white);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1.5px var(--steel);
     font-weight: 700;
-    padding: 5px 14px;
-    border-radius: 20px;
-    letter-spacing: 0.3px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-  }
-  .plan-card h2 {
-    margin: 0 0 4px;
-    font-size: 1.3rem;
-  }
-  .plan-card .tagline {
-    font-size: 0.85rem;
-    opacity: 0.85;
-    margin-bottom: 16px;
-  }
-  .plan-card .price {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-  .plan-card .price span {
     font-size: 0.9rem;
-    font-weight: 400;
-    opacity: 0.85;
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 14px;
   }
-  .plan-card ul {
+  .plan ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 24px;
-    flex-grow: 1;
+    margin: 0;
   }
-  .plan-card li {
-    padding: 6px 0;
-    font-size: 0.92rem;
+  .plan li {
+    padding: 5px 0;
+    font-size: 0.93rem;
     display: flex;
+    gap: 10px;
     align-items: flex-start;
-    gap: 8px;
   }
-  .plan-card li::before {
+  .plan li::before {
     content: "✓";
+    color: var(--red);
     font-weight: 700;
     flex-shrink: 0;
   }
-  .buy-btn {
-    display: block;
-    text-align: center;
-    background: #fff;
-    color: var(--free-text);
-    font-weight: 700;
-    padding: 12px 20px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 0.95rem;
-  }
-  .plan-card.free .buy-btn {
-    background: var(--free-text);
-    color: #fff;
-  }
-  .buy-btn:hover { opacity: 0.85; }
-  .buy-btn.disabled {
-    opacity: 0.55;
-    cursor: default;
-    pointer-events: none;
-  }
-
-  .how-it-works {
-    margin-top: 56px;
-    background: var(--free-bg);
-    border-radius: 20px;
-    padding: 28px 24px;
-  }
-  .how-it-works h2 {
-    margin-top: 0;
-    font-size: 1.3rem;
-    color: var(--free-text);
+  .note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--steel);
   }
   .steps {
     list-style: none;
     padding: 0;
-    margin: 20px 0 0;
+    margin: 4px 0 0;
     counter-reset: step;
   }
   .steps li {
     counter-increment: step;
     display: flex;
     gap: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     align-items: flex-start;
   }
+  .steps li:last-child { margin-bottom: 0; }
   .steps li::before {
     content: counter(step);
     flex-shrink: 0;
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: var(--paid-accent);
-    color: #fff;
+    background: var(--steel);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1.5px var(--steel);
+    color: var(--white);
     font-size: 0.85rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .steps li p {
-    margin: 0;
-    padding-top: 2px;
-    color: var(--free-text);
+  .steps p { margin: 2px 0 0; }
+  .disclaimer {
+    margin-top: 32px;
+    background: #FFF8E1;
+    color: var(--black);
+    border-left: 4px solid #F0C020;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.9rem;
   }
-
   footer {
     text-align: center;
-    padding: 32px 20px 48px;
-    color: var(--muted);
-    font-size: 0.85rem;
-  }
-    footer a {
-    color: var(--paid-accent);
-  }
-  .steps a {
-    color: var(--paid-accent);
-    font-weight: 700;
-    text-decoration: underline;
-  }
-    .steps a:hover {
-    opacity: 0.8;
-  }
-  .cart-note {
-    margin-top: 20px;
-    background: #FFF8E1;
-    border: 1px solid #F0C020;
-    border-radius: 12px;
-    padding: 14px 18px;
+    padding: 8px 20px 48px;
     font-size: 0.88rem;
-    color: #4A3560;
   }
-  .cart-note strong {
-    display: block;
-    margin-bottom: 4px;
+  footer a {
+    color: var(--white);
+    font-weight: 600;
+    text-decoration-color: var(--steel);
+    text-underline-offset: 3px;
+  }
+  .card a {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration-color: var(--red);
+    text-underline-offset: 3px;
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>SRIYA Motherhood Companion</h1>
-  <p>Unlock more tools to support your pregnancy journey</p>
+  <h1 class="wordmark">SRIYA <span class="heart">&#10084;</span></h1>
+  <p class="sub">Your Motherhood Companion</p>
+  <p class="intro">A gentle companion for your pregnancy: follow your baby week by week, keep track of your health, write your journal, and share the journey with other mothers.</p>
 </header>
 
 <main>
+  <h2 class="section">Plans</h2>
   <div class="plans">
 
-    <div class="plan-card free">
-      <h2>SRIYA Free Plan</h2>
+    <div class="card plan">
+      <h3>Free</h3>
       <div class="tagline">Essential features for your journey</div>
-      <div class="price">Free</div>
+      <span class="price">Free</span>
       <ul>
         <li>Pregnancy Tracker</li>
         <li>Water &amp; Symptom Tracking</li>
@@ -236,14 +204,14 @@
         <li>Journal &amp; Reminders</li>
         <li>Special Days Calendar</li>
         <li>Partner Mode</li>
+        <li>9 languages</li>
       </ul>
-      <div class="buy-btn" style="opacity:0.6; cursor:default;">Included</div>
     </div>
 
-    <div class="plan-card paid">
-      <h2>SRIYA Paid Plan</h2>
+    <div class="card plan">
+      <h3>Paid</h3>
       <div class="tagline">Advanced features for your journey</div>
-            <div class="price" style="font-size:1.2rem;">Monthly $2.99 · Annual $29.99 · Lifetime $49.99</div>
+      <span class="price">Monthly, Annual or Lifetime</span>
       <ul>
         <li>Everything in Free</li>
         <li>Weight Tracker</li>
@@ -251,18 +219,16 @@
         <li>Blood Pressure &amp; Blood Sugar Tracking</li>
         <li>Sleep Tracker &amp; Mood Chart</li>
         <li>Personalized Meal Plans</li>
-        <li>Background Music (preset tracks)</li>
+        <li>Background Music</li>
         <li>Custom Notification Sounds</li>
         <li>Birth Certificate Guide</li>
       </ul>
-      <a class="buy-btn" href="https://sriyaapp.gumroad.com/l/sriya-paid-plan" target="_blank" rel="noopener">Choose a Plan</a>
     </div>
 
-    <div class="plan-card premium">
-      <span class="coming-soon-badge">Coming Soon</span>
-      <h2>SRIYA Premium Plan</h2>
-      <div class="tagline">Ultimate features for your journey</div>
-      <div class="price" style="font-size:1.2rem;">Monthly $4.99 · Annual $49.99 · Lifetime $69.99</div>
+    <div class="card plan">
+      <h3>Premium</h3>
+      <div class="tagline">Every feature for your journey</div>
+      <span class="price">Monthly, Annual or Lifetime</span>
       <ul>
         <li>Everything in Paid</li>
         <li>Dark Mode</li>
@@ -272,31 +238,28 @@
         <li>Upload Your Own Background Music</li>
         <li>Export Medical Reports as PDF</li>
       </ul>
-      <span class="buy-btn disabled">Coming Soon</span>
     </div>
 
-    </div>
+  </div>
+  <p class="note">Prices are shown in your own currency in the app and on Google Play.</p>
 
-  <div class="cart-note">
-    <strong>⚠️ Before you check out:</strong>
-    If you selected more than one plan option (e.g. Monthly, then Lifetime), Gumroad's cart may keep both as separate items. Please check your cart and remove any plan you don't want before completing payment.
+  <h2 class="section">How to Upgrade</h2>
+  <div class="card">
+    <ol class="steps">
+      <li><p>Open the SRIYA app and go to the <strong>Plans</strong> screen.</p></li>
+      <li><p>Choose Paid or Premium, and Monthly, Annual or Lifetime.</p></li>
+      <li><p>Pay securely with <strong>Google Play</strong>. Your plan unlocks straight away.</p></li>
+      <li><p>Manage or cancel a subscription any time in Google Play under <strong>Payments &amp; subscriptions</strong>.</p></li>
+    </ol>
   </div>
 
-  <div class="how-it-works">
-    <h2>How to Upgrade</h2>
-        <ol class="steps">
-      <li><p>Tap <a href="https://sriyaapp.gumroad.com/l/sriya-paid-plan" target="_blank" rel="noopener">Choose a Plan</a> above and pick Monthly, Annual, or Lifetime.</p></li>
-      <li><p>Complete your purchase securely through <a href="https://gumroad.com" target="_blank" rel="noopener">Gumroad</a>, a trusted payment platform used by many creators and apps.</p></li>
-      <li><p>You'll receive a 6-digit unlock code by email, usually within 24 hours.</p></li>
-      <li><p>Open the SRIYA app and go to your <strong>Plans</strong> screen.</p></li>
-      <li><p>Tap <strong>Enter Code</strong> under "Have an Unlock Code?" and type in your code.</p></li>
-      <li><p>Your plan unlocks instantly — no restart needed.</p></li>
-    </ol>
+  <div class="disclaimer">
+    <strong>Important:</strong> SRIYA is not a medical device and does not give medical advice. Always talk to your doctor or midwife about your health and your pregnancy.
   </div>
 </main>
 
 <footer>
-  <p>&copy; 2026 SRIYA Motherhood Companion &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="mailto:sriyamotherhoodcompanion@gmail.com">Contact Us</a></p>
+  <p>&copy; 2026 SRIYA Motherhood Companion &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a> &middot; <a href="mailto:sriyamotherhoodcompanion@gmail.com">Contact Us</a></p>
 </footer>
 
 </body>
