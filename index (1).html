@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRIYA Motherhood Companion</title>
+<meta name="description" content="SRIYA is a gentle pregnancy companion app: track your pregnancy week by week, your health and your baby's movements, and connect with other mothers.">
+<link rel="icon" type="image/png" href="sriya_icon_512.png">
+<link rel="apple-touch-icon" href="sriya_icon_512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* SRIYA app colours */
+  :root {
+    --navy: #173753;     /* page background */
+    --steel: #8DA9C4;    /* card shade, buttons */
+    --white: #FFFFFF;    /* cards */
+    --black: #111111;    /* text on cards */
+    --red: #E60000;      /* icons and small highlights */
+    --pink: #E91E63;     /* heart */
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--navy); }
+  body {
+    margin: 0;
+    font-family: 'Poppins', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    line-height: 1.6;
+  }
+  header {
+    text-align: center;
+    padding: 56px 20px 16px;
+  }
+  .logo {
+    display: block;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 18px;
+    border-radius: 28px;
+    border: 4px solid var(--white);
+    box-shadow: -8px -8px 0 var(--steel);
+  }
+  .wordmark {
+    margin: 0;
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .wordmark .heart { color: var(--pink); }
+  header .sub {
+    margin: 4px 0 0;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--steel);
+  }
+  header .intro {
+    max-width: 620px;
+    margin: 20px auto 0;
+    font-size: 1rem;
+  }
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px 20px 48px;
+  }
+  h2.section {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 40px 0 8px;
+  }
+  /* White card with the steel-blue shade block, like the app */
+  .card {
+    background: var(--white);
+    color: var(--black);
+    border-radius: 20px;
+    box-shadow: -8px -8px 0 var(--steel);
+    margin: 8px 0 0 8px;
+    padding: 26px 22px;
+  }
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 28px;
+    margin-top: 16px;
+  }
+  .plan { display: flex; flex-direction: column; }
+  .plan h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--navy);
+  }
+  .plan .tagline {
+    font-size: 0.88rem;
+    color: var(--navy);
+    opacity: 0.8;
+    margin-bottom: 12px;
+  }
+  .plan .price {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--steel);
+    color: var(--white);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1.5px var(--steel);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+  }
+  .plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .plan li {
+    padding: 5px 0;
+    font-size: 0.93rem;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .plan li::before {
+    content: "✓";
+    color: var(--red);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--steel);
+  }
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0;
+    counter-reset: step;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .steps li:last-child { margin-bottom: 0; }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--steel);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1.5px var(--steel);
+    color: var(--white);
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .steps p { margin: 2px 0 0; }
+  .disclaimer {
+    margin-top: 32px;
+    background: #FFF8E1;
+    color: var(--black);
+    border-left: 4px solid #F0C020;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+  }
+  footer {
+    text-align: center;
+    padding: 8px 20px 48px;
+    font-size: 0.88rem;
+  }
+  footer a {
+    color: var(--white);
+    font-weight: 600;
+    text-decoration-color: var(--steel);
+    text-underline-offset: 3px;
+  }
+  .card a {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration-color: var(--red);
+    text-underline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="sriya_icon_512.png" alt="SRIYA logo" width="140" height="140">
+  <h1 class="wordmark">SRIYA <span class="heart">&#10084;</span></h1>
+  <p class="sub">Your Motherhood Companion</p>
+  <p class="intro">A gentle companion for your pregnancy: follow your baby week by week, keep track of your health, write your journal, and share the journey with other mothers.</p>
+</header>
+
+<main>
+  <h2 class="section">Plans</h2>
+  <div class="plans">
+
+    <div class="card plan">
+      <h3>Free</h3>
+      <div class="tagline">Essential features for your journey</div>
+      <span class="price">Free</span>
+      <ul>
+        <li>Pregnancy Tracker</li>
+        <li>Water &amp; Symptom Tracking</li>
+        <li>Kick Counter</li>
+        <li>Journal &amp; Reminders</li>
+        <li>Special Days Calendar</li>
+        <li>Partner Mode</li>
+        <li>9 languages</li>
+      </ul>
+    </div>
+
+    <div class="card plan">
+      <h3>Paid</h3>
+      <div class="tagline">Advanced features for your journey</div>
+      <span class="price">Monthly, Annual or Lifetime</span>
+      <ul>
+        <li>Everything in Free</li>
+        <li>Weight Tracker</li>
+        <li>Contraction Timer</li>
+        <li>Blood Pressure &amp; Blood Sugar Tracking</li>
+        <li>Sleep Tracker &amp; Mood Chart</li>
+        <li>Personalized Meal Plans</li>
+        <li>Background Music</li>
+        <li>Custom Notification Sounds</li>
+        <li>Birth Certificate Guide</li>
+      </ul>
+    </div>
+
+    <div class="card plan">
+      <h3>Premium</h3>
+      <div class="tagline">Every feature for your journey</div>
+      <span class="price">Monthly, Annual or Lifetime</span>
+      <ul>
+        <li>Everything in Paid</li>
+        <li>Dark Mode</li>
+        <li>AI Advice &amp; Expert Q&amp;A</li>
+        <li>Chat with Mothers</li>
+        <li>3D Baby Growth Viewer</li>
+        <li>Upload Your Own Background Music</li>
+        <li>Export Medical Reports as PDF</li>
+      </ul>
+    </div>
+
+  </div>
+  <p class="note">Prices are shown in your own currency in the app and on Google Play.</p>
+
+  <h2 class="section">How to Upgrade</h2>
+  <div class="card">
+    <ol class="steps">
+      <li><p>Open the SRIYA app and go to the <strong>Plans</strong> screen.</p></li>
+      <li><p>Choose Paid or Premium, and Monthly, Annual or Lifetime.</p></li>
+      <li><p>Pay securely with <strong>Google Play</strong>. Your plan unlocks straight away.</p></li>
+      <li><p>Manage or cancel a subscription any time in Google Play under <strong>Payments &amp; subscriptions</strong>.</p></li>
+    </ol>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Important:</strong> SRIYA is not a medical device and does not give medical advice. Always talk to your doctor or midwife about your health and your pregnancy.
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 SRIYA Motherhood Companion &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a> &middot; <a href="mailto:sriyamotherhoodcompanion@gmail.com">Contact Us</a></p>
+</footer>
+
+</body>
+</html>
